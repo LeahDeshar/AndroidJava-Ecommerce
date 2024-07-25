@@ -13,3 +13,11 @@
 .externalNativeBuild
 .cxx
 local.properties
+.idea 
+gradle.properties
+build.gradle.kts
+db.json
+gradlew.bat
+settings.gradle.kts 
+
+gradle
