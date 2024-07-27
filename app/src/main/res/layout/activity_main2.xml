@@ -68,11 +68,19 @@
                 <EditText
                     android:id="@+id/editTextText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
+                    android:drawableStart="@drawable/search_icon"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:padding="8dp"
+                    android:hint="Search Food,Drink..."
                     android:inputType="text"
-                    android:text="Name" />
+                    android:drawablePadding="8dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:background="@drawable/light_black_bg"
+              />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="50dp"
