@@ -18,7 +18,7 @@ This project is an online app featuring a modern dashboard page built with Andro
 - [x] Setting Project
 - [x] Add Firebase to Project
 - [x] Main Activity
-- [ ] Dashboard shop app ui
+- [x] Dashboard shop app ui
 - [ ] Dashboard shop app backend
 - [ ] Detail shop app ui
 - [ ] Detail shop app backend

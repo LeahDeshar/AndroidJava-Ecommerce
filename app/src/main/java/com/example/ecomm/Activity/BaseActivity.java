@@ -1,4 +1,4 @@
-package com.example.ecomm;
+package com.example.ecomm.Activity;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -7,13 +7,11 @@ import android.view.Window;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class BaseActivity extends AppCompatActivity {
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
