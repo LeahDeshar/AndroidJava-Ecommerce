@@ -3,8 +3,18 @@ package com.example.ecomm.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
+import androidx.annotation.NonNull;
+
+import com.example.ecomm.Domain.LocationDomain;
 import com.example.ecomm.databinding.ActivityMainBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
     ActivityMainBinding binding;
@@ -22,6 +32,29 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+        initLocation();
 
+    }
+    private void initLocation(){
+        DatabaseReference reference = database.getReference();
+        ArrayList<LocationDomain> list = new ArrayList<>();
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+
+                        list.add(dataSnapshot.getValue(LocationDomain.class));
+                    }
+                    ArrayAdapter<LocationDomain> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, list);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        }
     }
 }

@@ -10,9 +10,11 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class BaseActivity extends AppCompatActivity {
     
-
+FirebaseDatabase database = FirebaseDatabase.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,8 @@ public class BaseActivity extends AppCompatActivity {
                 );
             }
         }
+
+        database = FirebaseDatabase.getInstance();
 
     }
 }
