@@ -10,6 +10,11 @@ public class LocationDomain {
 
     }
 
+    @Override
+    public String toString() {
+        return loc;
+    }
+
     public int getId() {
         return Id;
     }

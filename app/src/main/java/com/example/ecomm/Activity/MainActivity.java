@@ -33,31 +33,12 @@ public class MainActivity extends BaseActivity {
 
             }
         });
-        initLocation();
 
-    }
-    private void initLocation(){
-        DatabaseReference reference = database.getReference();
-        ArrayList<LocationDomain> list = new ArrayList<>();
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists())
-                {
-                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
-                        list.add(dataSnapshot.getValue(LocationDomain.class));
-                    }
-                    ArrayAdapter<LocationDomain> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.sp_items, list);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    binding.locationSp.setAdapter(adapter);
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        }
+
+
+
     }
 }
