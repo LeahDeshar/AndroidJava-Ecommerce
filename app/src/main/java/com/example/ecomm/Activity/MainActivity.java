@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 
 import com.example.ecomm.Domain.LocationDomain;
+import com.example.ecomm.R;
 import com.example.ecomm.databinding.ActivityMainBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,7 +48,9 @@ public class MainActivity extends BaseActivity {
 
                         list.add(dataSnapshot.getValue(LocationDomain.class));
                     }
-                    ArrayAdapter<LocationDomain> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, list);
+                    ArrayAdapter<LocationDomain> adapter = new ArrayAdapter<>(MainActivity.this, R.layout.sp_items, list);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    binding.locationSp.setAdapter(adapter);
                 }
             }
 
