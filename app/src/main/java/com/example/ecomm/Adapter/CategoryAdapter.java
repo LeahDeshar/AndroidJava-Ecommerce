@@ -8,15 +8,17 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.ecomm.Domain.CategoryDomain;
 import com.example.ecomm.databinding.ViewholderCategoryBinding;
 
 import java.util.ArrayList;
 
 public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.Viewholder>{
-    ArrayList<CategoryAdapter> items;
+    ArrayList<CategoryDomain> items;
     Context context;
 
-    public CategoryAdapter(ArrayList<CategoryAdapter> items) {
+    public CategoryAdapter(ArrayList<CategoryDomain> items) {
         this.items = items;
     }
 
@@ -25,12 +27,15 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.Viewh
     public CategoryAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         ViewholderCategoryBinding binding = ViewholderCategoryBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-        return new Viewholder(binding.getRoot());
+        return new Viewholder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.Viewholder holder, int position) {
-
+holder.binding.titleTxt.setText(items.get(position).getName());
+        Glide.with(context)
+                .load(items.get(position).getImagePath())
+                .into(holder.binding.img);
     }
 
     @Override
@@ -38,9 +43,12 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.Viewh
         return items.size();
     }
 
-    public class Viewholder extends RecyclerView.ViewHolder {
-        public Viewholder(@NonNull View itemView) {
-            super(itemView);
+    public static class Viewholder extends RecyclerView.ViewHolder {
+
+        ViewholderCategoryBinding binding;
+        public Viewholder(ViewholderCategoryBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }
