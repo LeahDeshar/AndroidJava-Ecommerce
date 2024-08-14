@@ -45,7 +45,7 @@ public class MainActivity2 extends BaseActivity {
     }
 
     private void initCategoryList() {
-        DatabaseReference reference = database.getReference();
+        DatabaseReference reference = database.getReference("Category");
         ArrayList<CategoryDomain> list = new ArrayList<>();
         binding.progressBarCategory.setVisibility(View.VISIBLE);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -64,9 +64,6 @@ public class MainActivity2 extends BaseActivity {
                     binding.progressBarCategory.setVisibility(View.GONE);
 
 
-//                    ArrayAdapter<CategoryDomain> adapter = new ArrayAdapter<>(MainActivity2.this, R.layout.sp_items, list);
-//                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                    binding.categorySp.setAdapter(adapter);
                 }
             }
 
@@ -78,7 +75,7 @@ public class MainActivity2 extends BaseActivity {
     }
 
     private void initLocation() {
-        DatabaseReference reference = database.getReference();
+        DatabaseReference reference = database.getReference("Location");
         ArrayList<LocationDomain> list = new ArrayList<>();
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
