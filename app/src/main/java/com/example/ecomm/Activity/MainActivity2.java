@@ -17,6 +17,7 @@ import com.example.ecomm.Domain.CategoryDomain;
 import com.example.ecomm.Domain.LocationDomain;
 import com.example.ecomm.R;
 import com.example.ecomm.databinding.ActivityMain2Binding;
+import com.example.ecomm.databinding.ActivityMainBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +31,9 @@ public class MainActivity2 extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMain2Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main2);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
