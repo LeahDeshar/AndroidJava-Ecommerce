@@ -1,6 +1,7 @@
 package com.example.ecomm.Activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
@@ -55,19 +56,39 @@ public class MainActivity2 extends BaseActivity {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (snapshot.exists()) {
+//                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//
+//                        list.add(dataSnapshot.getValue(CategoryDomain.class));
+//                    }
+//                    if(!list.isEmpty())
+//                    {
+//                        binding.catView.setLayoutManager(new LinearLayoutManager(MainActivity2.this,LinearLayoutManager.HORIZONTAL,false));
+//                        binding.catView.setAdapter(new CategoryAdapter(list));
+//                    }
+//                    binding.progressBarCategory.setVisibility(View.GONE);
+//
+//
+//                }
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-
-                        list.add(dataSnapshot.getValue(CategoryDomain.class));
+                        CategoryDomain category = dataSnapshot.getValue(CategoryDomain.class);
+                        if (category != null) {
+                            list.add(category);
+                        } else {
+                            // Log if the category is null
+                            Log.e("MainActivity2", "Null CategoryDomain object in snapshot: " + dataSnapshot.toString());
+                        }
                     }
-                    if(!list.isEmpty())
-                    {
-                        binding.catView.setLayoutManager(new LinearLayoutManager(MainActivity2.this,LinearLayoutManager.HORIZONTAL,false));
+                    if (!list.isEmpty()) {
+                        binding.catView.setLayoutManager(new LinearLayoutManager(MainActivity2.this, LinearLayoutManager.HORIZONTAL, false));
                         binding.catView.setAdapter(new CategoryAdapter(list));
+                    } else {
+                        Log.e("MainActivity2", "Category list is empty.");
                     }
                     binding.progressBarCategory.setVisibility(View.GONE);
-
-
+                } else {
+                    Log.e("MainActivity2", "Snapshot does not exist.");
                 }
             }
 
