@@ -1,4 +1,4 @@
-package com.example.ecomm.Activity;
+package com.example.ecomm.Adapter;
 
 
 import android.content.Context;
@@ -26,4 +26,15 @@ public class BestDealAdapter extends RecyclerView.Adapter<BestDealAdapter.Viewho
     @Override
     public void onBindViewHolder(@NonNull BestDealAdapter.Viewholder holder, int position) {
 
+    }
+
+
+    public class Viewholder extends RecyclerView.ViewHolder {
+
+        ViewholderBestDealBinding binding;
+        public Viewholder(ViewholderBestDealBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+    }
 }
