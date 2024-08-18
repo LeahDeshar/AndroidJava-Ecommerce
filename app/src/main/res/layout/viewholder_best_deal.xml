@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/favorite_green" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/titleTxt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/plusBtn"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:text="+"
@@ -49,16 +49,16 @@
         android:background="@drawable/blus_btn"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTxt" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/priceTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="5kg"
+        android:text="$/kg"
         android:textColor="@color/yellow"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView10" />
+        app:layout_constraintStart_toStartOf="@+id/titleTxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
