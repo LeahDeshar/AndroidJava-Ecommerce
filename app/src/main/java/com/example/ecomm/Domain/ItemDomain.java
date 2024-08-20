@@ -1,4 +1,4 @@
 package com.example.ecomm.Domain;
 
-//public class ItemDomain {
-//}
+public class ItemDomain {
+}
